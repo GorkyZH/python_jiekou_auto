@@ -1,6 +1,9 @@
 #coding:utf-8
 import os
 
+"""
+其他公共工具类
+"""
 class CommonUtil:
 
     def is_contain(self, except_res, actrual_res):

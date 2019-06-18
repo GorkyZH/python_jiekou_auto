@@ -3,11 +3,9 @@
 import xlrd
 from xlutils.copy import copy
 
-# data = xlrd.open_workbook('../dataconfig/case01.xlsx')
-# tables = data.sheets()[0]
-# print(tables.nrows)
-# print(tables.cell_value(2, 2))
-
+"""
+读取excel文件工具类
+"""
 class OperationExcel:
     def __init__(self, file_name=None, sheet_id=None):
         if file_name:

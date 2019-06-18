@@ -4,7 +4,9 @@ import sys
 import importlib
 importlib.reload(sys)
 
-
+"""
+读取json文件工具类
+"""
 class OperationJson:
     def __init__(self):
         self.data = self.read_data()

@@ -4,16 +4,21 @@ from base.run_method import RunMethod
 from data.get_data import GetData
 from util.common_util import CommonUtil
 from data.dependent_data import DependentData
+from util.send_email import SendEmail
 import json
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+"""
+主流程运行的主方法类
+"""
 class RunTest:
     def __init__(self):
         self.run_method = RunMethod()
         self.data = GetData()
         self.common_util = CommonUtil()
+        self.email = SendEmail()
 
     def go_on_run(self):
         """获取用例行数"""
@@ -81,6 +86,7 @@ class RunTest:
             print("打印结果：", result)
         print("通过数：", len(pass_count))
         print("失败数：", len(fail_count))
+        self.email.send_main(pass_count, fail_count)
         return result
 
 if __name__ == '__main__':

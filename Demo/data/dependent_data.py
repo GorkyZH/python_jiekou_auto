@@ -6,6 +6,9 @@ from util.common_util import CommonUtil
 from jsonpath_rw import jsonpath,parse
 import json
 
+"""
+数据依赖类
+"""
 class DependentData:
     def __init__(self, case_id):
         self.oper_excel = OperationExcel()

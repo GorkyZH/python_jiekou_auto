@@ -2,7 +2,9 @@
 import requests
 import json
 
-"""post、get基类的封装"""
+"""
+post、get基类的封装
+"""
 
 class RunMethod:
     def post_main(self,url,data,header=None):
