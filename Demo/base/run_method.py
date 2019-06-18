@@ -31,3 +31,4 @@ class RunMethod:
         # 返回数据格式调整
         # return json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2)
         return json.dumps(result, ensure_ascii=False)
+        #return result

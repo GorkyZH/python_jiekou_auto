@@ -2,12 +2,14 @@
 from util.operation_excel import OperationExcel
 from base.run_method import RunMethod
 from data.get_data import GetData
+from util.common_util import CommonUtil
 from jsonpath_rw import jsonpath,parse
 import json
 
 class DependentData:
     def __init__(self, case_id):
         self.oper_excel = OperationExcel()
+        self.util = CommonUtil()
         self.case_id = case_id
         self.data = GetData()
 
@@ -29,9 +31,9 @@ class DependentData:
         print("url:", url)
         method = self.data.get_request_type(row_num)
         print("method:", method)
-        header = self.data.get_header(row_num)
-        print("header:", header)
-        res = run_method.run_main(method, url, request_data, header)
+        token_header = self.data.get_token_header(row_num, self.util.getToken())
+        print("依赖的token_header:", token_header)
+        res = run_method.run_main(method, url, request_data, token_header)
         print("res:", res)
         return json.loads(res)
 
@@ -51,6 +53,5 @@ class DependentData:
 if __name__ == '__main__':
     dependent = DependentData("case001")
     dependent.run_dependent()
-    #print(dependent.get_data_for_key(4, 0))
     print(dependent.get_data_for_key(4, 1))
 

@@ -42,30 +42,32 @@ class RunTest:
                     #获取依赖的响应数据
                     dependent_response_data = self.dependent_data.get_data_for_key(i, 0)
                     print("dependent_response_data", dependent_response_data)
-                    #token_header = self.data.get_token_header(i, dependent_response_data)
                     token_value = self.common_util.getToken()
                     token_header = self.data.get_token_header(i, token_value)
                     print("token_header:", token_header)
                     if url == "http://182.61.33.241:8089/app/api/private/1.0/client/":
-                        new_url = url+self.dependent_data.get_data_for_key(i, 1)
+                        new_url = url+dependent_response_data
                         print("------------------------------------")
                         print("new_url:", new_url)
-                        #new_header = self.data.get_token_header(i, self.dependent_data.get_data_for_key(i, 0))
                         result = self.run_method.run_main(request_type, new_url, data, token_header)
                     else:
-                        # result = self.run_method.run_main(request_type, url, data, token_header)
-                        result = self.run_method.get_main(url, data, token_header)
+                        result = self.run_method.run_main(request_type, url, data, token_header)
+                        # result = self.run_method.get_main(url, data, token_header)
                 else:
-                    header = self.data.get_header(i)
-                    print("header:", header)
-                    result = self.run_method.post_main(url, data, header)
-                    #result = self.run_method.run_main(request_type, url, data, header)
-                    print("返回结果：", result)
-
-                    #获取token值
-                    with open(self.common_util.base_dir(), 'w') as f:
-                        f.write(result["data"]["token"])
-
+                    if i == 1:
+                        header = self.data.get_header(i)
+                        print("header:", header)
+                        result = self.run_method.post_main(url, data, header)
+                        #result = self.run_method.run_main(request_type, url, data, header)
+                        #获取token值
+                        with open(self.common_util.base_dir(), 'w') as f:
+                            f.write(result["data"]["token"])
+                        print("获取token：", result["data"]["token"])
+                    else:
+                        token_value = self.common_util.getToken()
+                        token_header = self.data.get_token_header(i,token_value)
+                        result = self.run_method.run_main(request_type, url, data, token_header)
+                print("返回结果：", result)
                 except_res = self.data.get_except(i)
                 print("except_res:", except_res)
                 if self.common_util.is_contain(except_res, result):
@@ -73,7 +75,7 @@ class RunTest:
                     print("测试通过")
                     pass_count.append(i)
                 else:
-                    self.data.write_result(i, result)
+                    self.data.write_result(i, "测试失败")
                     print("测试失败")
                     fail_count.append(i)
             print("打印结果：", result)

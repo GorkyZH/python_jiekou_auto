@@ -18,7 +18,7 @@ class CommonUtil:
         return flag
 
     def base_dir(self):
-        '''返回toeken文件的目录文件保存绝对地址'''
+        '''返回token文件的目录文件保存绝对地址'''
         return os.path.join(os.path.dirname(__file__), 'token.md')
 
     def getToken(self):
