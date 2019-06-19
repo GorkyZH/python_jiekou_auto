@@ -1,8 +1,8 @@
 # _*_ coding:utf-8 _*_
 import json
 import sys
-import importlib
-importlib.reload(sys)
+# import importlib
+# importlib.reload(sys)
 
 """
 读取json文件工具类
@@ -13,7 +13,8 @@ class OperationJson:
 
     #读取json文件
     def read_data(self):
-        with open("../dataconfig/logincom.json") as fp:
+        #with open("../dataconfig/logincom.json") as fp:
+         with open("/Users/mac/Desktop/测试资料/python_jiekou_auto/python_jiekou_git/Demo/dataconfig/logincom.json") as fp:
             data = json.load(fp)
             return data
 

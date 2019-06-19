@@ -3,6 +3,10 @@
 import xlrd
 from xlutils.copy import copy
 
+# import sys
+# sys.path.append('/Users/mac/Desktop/测试资料/python_jiekou_auto/python_jiekou_git/Demo/util')
+# sys.path.append('/Users/mac/Desktop/测试资料/python_jiekou_auto/python_jiekou_git/Demo/dataconfig/case02.xls')
+
 """
 读取excel文件工具类
 """
@@ -12,7 +16,8 @@ class OperationExcel:
             self.file_name = file_name
             self.sheet_id = sheet_id
         else:
-            self.file_name = '../dataconfig/case02.xls'
+            # self.file_name = '../dataconfig/case02.xls'
+            self.file_name = '/Users/mac/Desktop/测试资料/python_jiekou_auto/python_jiekou_git/Demo/dataconfig/case02.xls'
             self.sheet_id = 0
         self.data = self.get_data()
 

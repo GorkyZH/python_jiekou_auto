@@ -1,7 +1,11 @@
 #coding=utf-8
 import smtplib
 from email.mime.text import MIMEText
-
+import sys
+import os
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
 """
 统计并发送邮件报告工具类
 """
@@ -41,6 +45,7 @@ class SendEmail:
 if __name__ == '__main__':
     send = SendEmail()
     send.send_main([1,2,3,4],[5,6,7,8,9])
+    print(sys.path)
 
 
 

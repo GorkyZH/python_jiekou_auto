@@ -1,6 +1,14 @@
 #coding:utf-8
 import requests
 import json
+import sys
+import os
+# curPath = os.path.abspath(os.path.dirname(__file__))
+# # rootPath = os.path.split(curPath)[0]
+# sys.path.append(curPath)
+import sys
+sys.path.append('/Users/mac/Desktop/测试资料/python_jiekou_auto/python_jiekou_git/Demo/base')
+
 
 """
 post、get基类的封装

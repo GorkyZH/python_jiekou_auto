@@ -6,9 +6,13 @@ from util.common_util import CommonUtil
 from data.dependent_data import DependentData
 from util.send_email import SendEmail
 import json
+# import sys
+# sys.path.append('/Users/mac/Desktop/测试资料/python_jiekou_auto/python_jiekou_git/Demo/main')
+
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 
 """
 主流程运行的主方法类
@@ -92,3 +96,4 @@ class RunTest:
 if __name__ == '__main__':
     run_test = RunTest()
     run_test.go_on_run()
+    #print(sys.path)
