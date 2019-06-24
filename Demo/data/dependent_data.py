@@ -34,7 +34,7 @@ class DependentData:
         print("url:", url)
         method = self.data.get_request_type(row_num)
         print("method:", method)
-        token_header = self.data.get_token_header(row_num, self.util.getToken())
+        token_header = self.data.get_token_header(row_num, self.util.getToken(0))
         print("依赖的token_header:", token_header)
         res = run_method.run_main(method, url, request_data, token_header)
         print("res:", res)

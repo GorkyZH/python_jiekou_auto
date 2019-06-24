@@ -12,7 +12,7 @@ class global_var:
     header = '5'   #头部
     case_dependent = '6'  #case依赖
     data_dependent = '7'  #依赖的返回数据
-    key_depedent = '8'   #依赖字段
+    key_depedent = '8'   #请求数据依赖字段
     parameter = '9'   #请求参数
     expect = '10'   #预期结果
     result = '11'   #实际结果

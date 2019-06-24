@@ -24,7 +24,9 @@ class CommonUtil:
         '''返回token文件的目录文件保存绝对地址'''
         return os.path.join(os.path.dirname(__file__), 'token.md')
 
-    def getToken(self):
+    def getToken(self, index):
         '''读取存储在文件中的token'''
         with open(self.base_dir(), 'r') as f:
-            return f.read()
+            token = f.read()
+            return token.split(',')[index]
+

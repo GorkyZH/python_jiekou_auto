@@ -20,7 +20,7 @@ class OperationJson:
 
     #根据关键字获取数据
     def get_data(self, id):
-        # return self.data[id]
+        #return self.data[id]
         return json.dumps(self.data[id])
 
 if __name__ == '__main__':

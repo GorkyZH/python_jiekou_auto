@@ -9,6 +9,9 @@ class GetData:
     def __init__(self):
         self.operation_excel = OperationExcel()
 
+    # def __init__(self, filename):
+    #     self.operation_excel = OperationExcel(filename, 0)
+
     #获取excel行数
     def get_case_line(self):
         return self.operation_excel.get_lines()
@@ -109,12 +112,16 @@ class GetData:
             return dependent_case_value
 
     # 获取依赖的字段
-    def get_dependent_key(self, row):
+    def get_dependent_key(self, row, index=None):
         col = int(data_config.get_key_dependent())
         dependent_key = self.operation_excel.get_cell_value(row, col)
         if dependent_key == '':
             return None
-        return dependent_key
+        if ',' in dependent_key:
+            dependent_key_id = dependent_key.split(',')[index]
+            return dependent_key_id
+        else:
+            return dependent_key
 
 
 
